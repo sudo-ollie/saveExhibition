@@ -1,0 +1,44 @@
+        {
+            Version = "2.0",
+            RouteKey = "$default",
+            RawPath = "/api/exhibitions",
+            RawQueryString = "param1=value1&param2=value2",
+            Headers = new Dictionary<string, string>
+            {
+                { "Content-Type", "application/json" },
+                { "User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36" }
+            },
+            QueryStringParameters = new Dictionary<string, string>
+            {
+                { "param1", "value1" },
+                { "param2", "value2" }
+            },
+            RequestContext = new APIGatewayHttpApiV2ProxyRequest.ProxyRequestContext
+            {
+                AccountId = "123456789012",
+                ApiId = "api-id",
+                DomainName = "api-id.execute-api.us-east-1.amazonaws.com",
+                DomainPrefix = "api-id",
+                RequestId = "request-id",
+                RouteKey = "$default",
+                Stage = "$default",
+                Time = "2023-09-16T12:00:00Z",
+                TimeEpoch = 1631793600000,
+                Http = new APIGatewayHttpApiV2ProxyRequest.HttpDescription
+                {
+                    Method = "POST",
+                    Path = "/api/exhibitions",
+                    Protocol = "HTTP/1.1",
+                    SourceIp = "192.168.1.1",
+                    UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+                }
+            },
+            Body = @"{
+                ""exhibitionName"": ""Modern Art Showcase"",
+                ""startDate"": ""2023-10-01"",
+                ""endDate"": ""2023-10-31"",
+                ""location"": ""City Art Gallery"",
+                ""description"": ""A showcase of contemporary art pieces from emerging artists.""
+            }",
+            IsBase64Encoded = false
+        }

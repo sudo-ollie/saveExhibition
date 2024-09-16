@@ -1,0 +1,44 @@
+{
+    "Version": "2.0",
+    "RouteKey": "POST /updateExhibit",
+    "RawPath": "/updateExhibit",
+    "RawQueryString": "",
+    "Cookies": null,
+    "Headers": {
+        "accept": "*/*",
+        "content-length": "224",
+        "content-type": "application/json",
+        "host": "8kbydqr7ig.execute-api.eu-west-2.amazonaws.com",
+        "user-agent": "insomnia/10.0.0",
+        "x-amzn-trace-id": "Root=1-66e80e90-20187c54574ef73d503dd376",
+        "x-forwarded-for": "217.155.104.242",
+        "x-forwarded-port": "443",
+        "x-forwarded-proto": "https"
+    },
+    "QueryStringParameters": null,
+    "RequestContext": {
+        "AccountId": "058264105930",
+        "ApiId": "8kbydqr7ig",
+        "Authorizer": null,
+        "DomainName": "8kbydqr7ig.execute-api.eu-west-2.amazonaws.com",
+        "DomainPrefix": "8kbydqr7ig",
+        "Http": {
+            "Method": "POST",
+            "Path": "/updateExhibit",
+            "Protocol": "HTTP/1.1",
+            "SourceIp": "217.155.104.242",
+            "UserAgent": "insomnia/10.0.0"
+        },
+        "RequestId": "eMc2oggIrPEEMyQ=",
+        "RouteId": null,
+        "RouteKey": "POST /updateExhibit",
+        "Stage": "$default",
+        "Time": "16/Sep/2024:10:55:12 +0000",
+        "TimeEpoch": 1726484112510,
+        "Authentication": null
+    },
+    "Body": "\t{\n\t\t\"userID\" : \"userID\",\n\t\t\"exhibName\" : \"exhibitName\",\n\t\t\"exhibItems\" : \n\t\t[\n\t\t\t{\"item\" : \"item1\"} , \n\t\t\t{\"item\" : \"item2\"} ,\n\t\t\t{\"item\" : \"item3\"}\n\t\t],\n\t\t\"exhibImage\" : \"https://imagehere.com\",\n\t\t\"exhibPublic\" : false\n\t}\n",
+    "PathParameters": null,
+    "IsBase64Encoded": false,
+    "StageVariables": null
+}
