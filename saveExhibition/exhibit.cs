@@ -1,4 +1,5 @@
 ﻿using Amazon.DynamoDBv2.DataModel;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SaveExhibition
 {
@@ -62,43 +63,43 @@ namespace SaveExhibition
         public string ItemClassification { get; set; }
         public string ItemTechnique { get; set; }
         public string ItemTitle { get; set; }
-        public int CreationDate { get; set; }
+        public string CreationDate { get; set; }
         public string ArtistBirthplace { get; set; }
         public string ArtistName { get; set; }
         public string ItemObjectLink { get; set; }
         public string ItemCentury { get; set; }
-
+        public string ItemImageURL { get; set; }
 
         public static ExhibitItem CreateExhibitItem(
             string itemCreditline,
             string itemDepartment,
             int itemID,
             string itemClassification,
+            string itemImageURL,
+            string artistName,
             string itemTechnique,
             string itemTitle,
-            int creationDate,
-            string artistBirthplace,
-            string artistName,
-            string itemObjectlink,
-            string itemCentury
-            )
+            string creationDate,
+            string itemObjectLink,
+            string itemCentury,
+            string artistBirthplace)
         {
-            var ExhibitItem = new ExhibitItem
+            var exhibitItem = new ExhibitItem
             {
                 ItemCreditline = itemCreditline,
                 ItemDepartment = itemDepartment,
                 ItemID = itemID,
                 ItemClassification = itemClassification,
+                ItemImageURL = itemImageURL,
+                ArtistName = artistName,
                 ItemTechnique = itemTechnique,
                 ItemTitle = itemTitle,
                 CreationDate = creationDate,
-                ArtistBirthplace = artistBirthplace,
-                ArtistName = artistName,
-                ItemObjectLink = itemObjectlink,
-                ItemCentury = itemCentury
+                ItemObjectLink = itemObjectLink,
+                ItemCentury = itemCentury,
+                ArtistBirthplace = artistBirthplace
             };
-
-            return ExhibitItem;
+            return exhibitItem;
         }
     }
 

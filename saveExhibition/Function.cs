@@ -33,7 +33,9 @@ public class Function
                 DynamoDBContext _dbContext = new DynamoDBContext(_dbClient);
 
                 var itemsToConvert = (JArray)jsonObject["exhibItems"];
+                log.Log(itemsToConvert.ToString());
                 var exhibitContent = ConvertJSONObjs(itemsToConvert);
+                log.Log(exhibitContent[0].ToString());
 
                 Random random = new Random();
 
@@ -41,7 +43,7 @@ public class Function
                     exhibitionID: random.Next(100001),
                     exhibitionPublic: jsonObject["exhibPublic"].Value<bool>(),
                     exhibitionName: jsonObject["exhibName"].ToString(),
-                    exhibitionImage: jsonObject["exhibImage"].ToString(),
+                    exhibitionImage: exhibitContent[0].ItemImageURL ?? "https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvam9iNjk2LTA4LWIteC5qcGc.jpg",
                     exhibitContent: exhibitContent,
                     exhibitionLength: exhibitContent.Count,
                     userID: jsonObject["userID"].ToString()
@@ -96,17 +98,18 @@ public class Function
         foreach (var item in jsonObject)
         {
             var exhibitItem = ExhibitItem.CreateExhibitItem(
-                itemCreditline: item["itemCreditline"]?.ToString(),
-                itemDepartment: item["itemDepartment"]?.ToString(),
-                itemID: item["itemID"]?.Value<int>() ?? 0,
-                itemClassification: item["itemClassification"]?.ToString(),
-                itemTechnique: item["itemTechnique"]?.ToString(),
-                itemTitle: item["itemTitle"]?.ToString(),
-                creationDate: item["creationDate"]?.Value<int>() ?? 0,
-                artistBirthplace: item["artistBirthplace"]?.ToString(),
-                artistName: item["artistName"]?.ToString(),
-                itemObjectlink: item["itemObjectLink"]?.ToString(),
-                itemCentury: item["itemCentury"]?.ToString()
+            itemCreditline: item["itemCreditLine"]?.ToString(),
+            itemDepartment: item["itemDivision"]?.ToString(),
+            itemID: item["itemID"]?.Value<int>() ?? 0,
+            itemClassification: item["itemClassification"]?.ToString(),
+            itemImageURL: item["imageURL"]?.ToString(),
+            artistName: item["artistName"]?.ToString(),
+            itemTechnique: item["itemTechnique"]?.ToString(),
+            itemTitle: item["itemTitle"]?.ToString(),
+            creationDate: item["itemDate"]?.ToString(),
+            itemObjectLink: item["itemURL"]?.ToString(),
+            itemCentury: item["itemCentury"]?.ToString(),
+            artistBirthplace: item["artistNationality"]?.ToString()
             );
             exhibitItems.Add(exhibitItem);
         }
